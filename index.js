@@ -54,13 +54,18 @@ const secondYearTopics = [
   },
 ];
 
-let hasShownFirstYear = false;
-let hasShownSecondYear = false;
-let hasShownThirdYear = false;
+const thirdYearTopics = null;
+
+const hasShown = {
+  firstYear: false,
+  secondYear: false,
+  thirdYear: false,
+};
 
 function showCards(principalId, periodTitle, topics) {
   const divPeriod = document.createElement('div');
   divPeriod.setAttribute('id', principalId);
+  divPeriod.setAttribute('class', 'square');
 
   const titleParagraph = document.createElement('p');
   titleParagraph.textContent = periodTitle;
@@ -94,48 +99,73 @@ const button2 = document.getElementById('second');
 const button3 = document.getElementById('third');
 
 button1.addEventListener('click', () => {
-  if (!hasShownFirstYear) {
+  if (!hasShown.firstYear) {
     const firstYearQuestions = showCards(
       'firstYear',
       'Primeiros Anos',
       firstYearTopics
     );
-    document.querySelector('main').appendChild(firstYearQuestions);
-    hasShownFirstYear = true;
+    const square = document.querySelector('.square');
+    if (!square) {
+      document.querySelector('main').appendChild(firstYearQuestions);
+    } else {
+      const main = document.querySelector('main');
+      main.insertBefore(firstYearQuestions, square);
+    }
+
+    hasShown.firstYear = true;
     button1.classList.add('isActive');
   } else {
     document.getElementById('firstYear').remove();
-    hasShownFirstYear = false;
+    hasShown.firstYear = false;
     button1.classList.remove('isActive');
   }
 });
 
 button2.addEventListener('click', () => {
-  if (!hasShownSecondYear) {
+  if (!hasShown.secondYear) {
     const secondYearQuestions = showCards(
       'secondYear',
       'Segundos Anos',
       secondYearTopics
     );
-    document.querySelector('main').appendChild(secondYearQuestions);
-    hasShownSecondYear = true;
+    const square = document.querySelector('.square');
+    if (!square) {
+      document.querySelector('main').appendChild(secondYearQuestions);
+    } else {
+      const main = document.querySelector('main');
+      main.insertBefore(secondYearQuestions, square);
+    }
+
+    hasShown.secondYear = true;
     button2.classList.add('isActive');
   } else {
     document.getElementById('secondYear').remove();
-    hasShownSecondYear = false;
+    hasShown.secondYear = false;
     button2.classList.remove('isActive');
   }
 });
 
 button3.addEventListener('click', () => {
-  if (!hasShownThirdYear) {
-    const thirdYearQuestions = showCards('thirdYear', 'Terceiros Anos', null);
-    document.querySelector('main').appendChild(thirdYearQuestions);
-    hasShownThirdYear = true;
+  if (!hasShown.thirdYear) {
+    const thirdYearQuestions = showCards(
+      'thirdYear',
+      'Terceiros Anos',
+      thirdYearTopics
+    );
+    const square = document.querySelector('.square');
+    if (!square) {
+      document.querySelector('main').appendChild(thirdYearQuestions);
+    } else {
+      const main = document.querySelector('main');
+      main.insertBefore(thirdYearQuestions, square);
+    }
+
+    hasShown.thirdYear = true;
     button3.classList.add('isActive');
   } else {
     document.getElementById('thirdYear').remove();
-    hasShownThirdYear = false;
+    hasShown.thirdYear = false;
     button3.classList.remove('isActive');
   }
 });
