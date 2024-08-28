@@ -1,0 +1,127 @@
+body {
+  font-family: sans-serif;
+  background-color: green;
+  margin: 0px;
+}
+
+main {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+a {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+#backHome {
+  margin: 10px;
+  text-align: center;
+}
+#backHome a {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+.pEmojiError {
+  background-color: red;
+}
+.pEmojiCorrect {
+  background-color: blue;
+}
+
+header > img {
+  width: 100px;
+}
+
+input {
+  background-color: white;
+  color: black;
+  text-align: center;
+  width: 50px;
+}
+
+p {
+  margin: 0px;
+}
+
+.card {
+  margin: 5px;
+  width: 30%;
+  padding: 5px;
+  color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  padding: 5px;
+  color: greenyellow;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+th {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+button {
+  font-weight: bold;
+  width: 150px;
+  background-color: blue;
+  color: white;
+  border: 2px solid blue;
+  border-radius: 5px;
+}
+
+button:hover,
+button:active {
+  background-color: rgb(161, 27, 161);
+  border: 2px solid rgb(161, 27, 161);
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) and (max-width: 981px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 98%;
+    font-size: 0.7rem;
+  }
+}

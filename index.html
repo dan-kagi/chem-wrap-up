@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chemistry Questions</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="./atomic-models/public/images/logo_ifmt.png" alt="logo ifmt" />
+      <h1>Questões de Química</h1>
+    </header>
+    <main>
+      <h2>
+        Cada seção apresenta questões de química referentes à determinada série
+        do Ensino Médio
+      </h2>
+      <div class="buttons">
+        <button id="first">Primeiros Anos</button>
+        <button id="second">Segundos Anos</button>
+        <button id="third">Terceiros Anos</button>
+      </div>
+      <!-- <div id="firstYear">
+        <p>Primeiros Anos</p>
+        <div class="anchorButtons">
+          <a href="./lavoisier-proust/index.html">
+            <p class="anchorTitle">Lavoisier - Proust</p>
+            <p>Lei da Conservação de Massas</p>
+            <p>Lei das Proporções Fixas</p>
+          </a>
+          <a href="./balancing/index.html">
+            <p class="anchorTitle">Balanceamento de Equações Químicas</p>
+          </a>
+          <a href="./atomic-models/index.html">
+            <p class="anchorTitle">Modelos Atômicos</p>
+            <p>Dalton, Thomson, Rutherford e Böhr</p>
+          </a>
+          <a href="./subparticles/index.html">
+            <p class="anchorTitle">Subpartículas</p>
+            <p>Prótons, Nêutrons e Elétrons</p>
+          </a>
+          <a href="./not-so-easy-subparticles/index.html">
+            <p class="anchorTitle">Subpartículas com Tabela Periódica</p>
+            <p>Prótons, Nêutrons e Elétrons</p>
+          </a>
+        </div>
+      </div> -->
+
+      <!-- <div id="secondYear">
+        <p>Segundos Anos</p>
+        <div class="anchorButtons">
+          <a href="./molar-mass/index.html">
+            <p class="anchorTitle">Massa Molar</p>
+          </a>
+          <a href="./stoichiometry/index.html">
+            <p class="anchorTitle">Estequiometria</p>
+          </a>
+          <a href="./balancing-stoichiometry/index.html">
+            <p class="anchorTitle">Estequiometria com Balanceamento</p>
+          </a>
+          <a href="./stoichiometry-mass/index.html">
+            <p class="anchorTitle">Estequiometria com Dados de Massa</p>
+            <p>Rendimento</p>
+          </a>
+          <a href="./concentrations/index.html">
+            <p class="anchorTitle">Concentração</p>
+            <p>Concentração Comum</p>
+            <p>Concentração Molar</p>
+          </a>
+        </div>
+      </div> -->
+      <!-- <div id="thirdYear">
+        <p>Terceiros Anos</p>
+        <div class="anchorButtons"></div>
+      </div> -->
+    </main>
+    <footer></footer>
+    <script>
+      const footer = document.querySelector('footer');
+      const today = new Date();
+      const year = today.getFullYear();
+      footer.innerHTML = `Copyright &copy; Danilo Morais Itokagi. All rights reserved. ${year}.`;
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>

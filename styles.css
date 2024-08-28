@@ -1,0 +1,125 @@
+body {
+  font-family: sans-serif;
+  background-color: green;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100px;
+}
+header {
+  background-color: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+h2 {
+  text-align: center;
+  margin: 50px;
+  color: white;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+#firstYear,
+#secondYear,
+#thirdYear {
+  margin: 10px;
+  padding: 20px;
+  border: 5px solid grey;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#firstYear > p,
+#secondYear > p,
+#thirdYear > p {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+button {
+  width: 200px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: white;
+  background-color: rgb(161, 27, 161);
+  font-weight: bold;
+  margin-bottom: 20px;
+  border: grey solid 5px;
+  border-radius: 10px;
+}
+
+button:hover,
+button:active {
+  border: orangered solid 5px;
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  background-color: orange;
+  border: orange solid 5px;
+  border-radius: 5px;
+  width: 250px;
+}
+
+.anchorTitle {
+  font-weight: bold;
+  color: black;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  border: orangered solid 5px;
+  width: 250px;
+}
+
+a:active {
+  border: orangered solid 5px;
+  width: 250px;
+}
+
+.anchorButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-evenly;
+}
+
+.isActive {
+  background-color: orange;
+  color: black;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+@media (max-width: 660px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  h2 {
+    font-size: 1.2rem;
+    text-align: justify;
+  }
+}
