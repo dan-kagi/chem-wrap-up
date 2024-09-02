@@ -80,15 +80,6 @@ button:active {
   margin-bottom: 10px;
 }
 
-.time,
-.distance {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 img {
   width: 400px;
   border-radius: 5px;
@@ -99,10 +90,7 @@ img {
     width: 90%;
     font-size: 0.7rem;
   }
-  .distance,
-  .time {
-    width: 90%;
-  }
+
   img {
     width: 300px;
   }

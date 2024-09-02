@@ -13,17 +13,16 @@ main {
   flex-direction: row;
 }
 
-h2 {
-  color: white;
-  text-align: center;
-}
-
 header {
   display: flex;
   align-items: center;
   background-color: white;
 }
 
+h2 {
+  text-align: center;
+  color: white;
+}
 a {
   font-weight: bold;
   color: black;

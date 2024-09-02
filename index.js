@@ -24,6 +24,15 @@ const firstYearTopics = [
     link: './not-so-easy-subparticles/index.html',
     additional: ['Prótons, Nêutrons e Elétrons'],
   },
+  {
+    title: 'Modelo Atômico Moderno',
+    link: './modern-atom/index.html',
+    additional: [
+      'Distribuição Eletrônica',
+      'Camada de Valência',
+      'Localização na Tabela Periódica',
+    ],
+  },
 ];
 
 const secondYearTopics = [
