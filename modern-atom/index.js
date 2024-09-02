@@ -218,7 +218,7 @@ const questions = [
     question:
       '<span>(não consultar tabela periódica)</span> Estas são as configurações eletrônicas da camada de valência do magnésio, fósforo, do cloro e do criptônio, respectivamente:<br/> <strong>Mg - 3s<sup>2</sup></strong>,<br/> <strong> P - 3s<sup>2</sup> 3p<sup>3</sup></strong>,<br/>  <strong>Cl - 3s<sup>2</sup> 3p<sup>5</sup></strong> e<br/> <strong>Kr - 4s<sup>2</sup> 4p<sup>6</sup></strong>.</br>Indique a localização de cada elemento na tabela periódica inserindo seu número atômico no local correto. Você deve inserir apenas quatro números atômicos. <strong>Dica: faça distribuição eletrônica utilizando diagrama de Linus Pauling</strong>',
     exerciseType: 'table',
-    answer: [12, 16, 17, 18],
+    answer: [12, 16, 17, 36],
   },
   {
     id: 13,
