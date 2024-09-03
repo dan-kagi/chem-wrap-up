@@ -634,6 +634,17 @@ buttonQuestions.addEventListener('click', () => {
 
 function createPeriodicTable(question) {
   const table = document.createElement('table');
+  const columnIndexRow = document.createElement('tr');
+  for (let k = 1; k <= 18; k++) {
+    const td = document.createElement('td');
+    td.textContent = k;
+    td.style.textAlign = 'center';
+    td.style.fontWeight = 'bold';
+    td.style.fontSize = '0.8rem';
+    td.style.backgroundColor = 'greenyellow';
+    columnIndexRow.appendChild(td);
+  }
+  table.appendChild(columnIndexRow);
   for (let i = 0; i < periodicTable.length; i++) {
     const row = document.createElement('tr');
     for (let j = 0; j < periodicTable[i].length; j++) {
