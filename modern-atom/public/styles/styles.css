@@ -152,6 +152,33 @@ main {
   align-items: baseline;
 }
 
+table {
+  border-spacing: 8px;
+}
+
+td {
+  padding: 0px;
+  width: 25px;
+}
+tr {
+  margin: 0px;
+}
+td input {
+  text-align: center;
+  background-color: white;
+  color: black;
+  border: none;
+  font-weight: normal;
+  width: 100%;
+  display: block;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
 @media (min-width: 900px) and (max-width: 1095px) {
   .card {
     font-size: 0.8rem;
@@ -174,9 +201,9 @@ main {
     align-items: center;
   }
   .card {
-    width: 98%;
+    width: 100%;
+    padding: 1px;
     font-size: 0.8rem;
-    padding: 2px;
     margin-bottom: 5px;
   }
   h3 {
@@ -188,36 +215,10 @@ main {
     margin-right: 2px;
     margin-left: 2px;
     margin-bottom: 10px;
-    padding: 2px;
+    border: grey solid 2px;
+    padding: 0px;
   }
   #cards {
     gap: 5px;
   }
-}
-
-table {
-  border-spacing: 8px;
-}
-
-td {
-  padding: 0px;
-  width: 20px;
-  margin: 2px;
-}
-tr {
-  margin: 0px;
-}
-td input {
-  text-align: center;
-  background-color: white;
-  color: black;
-  font-weight: normal;
-  width: 100%;
-  display: block;
-}
-
-footer {
-  text-align: center;
-  font-size: 0.8rem;
-  font-weight: bold;
 }

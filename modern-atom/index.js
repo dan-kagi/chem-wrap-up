@@ -1,3 +1,4 @@
+let totalScore = 0;
 const questions = [
   {
     id: 1,
@@ -373,7 +374,17 @@ function checkResult(inputs, question) {
   });
   if (selectedInput) {
     if (selectedInput.value === 'true') {
-      alert(`Q${question.id} - Parabéns, Você Acertou!`);
+      if (totalScore < 13) {
+        totalScore += 1;
+        document.querySelector('h4').textContent = `pontos: ${totalScore} / 13`;
+        alert(`Q${question.id} - Parabéns, Você Acertou!`);
+        return;
+      } else if (totalScore === 13) {
+        alert(
+          `Q${question.id} - Parabéns, todos resolvidos: ${totalScore} / 13`
+        );
+        return;
+      }
     } else {
       alert(`Q${question.id} - Errado. Resolva o exercício novamente.`);
     }
@@ -454,8 +465,17 @@ function checkPeriodicTableResult(inputs, tableQuestion) {
             inputs[j].style.color = 'white';
             inputs[j].style.fontWeight = 'bold';
           });
-          alert(`Q${tableQuestion.id} - Parabéns, resposta está CORRETA!!!`);
-          return;
+          if (totalScore < 13) {
+            totalScore += 1;
+            document.querySelector(
+              'h4'
+            ).textContent = `pontos: ${totalScore} / 13`;
+            alert(`Q${tableQuestion.id} - Parabéns, resposta está CORRETA!!!`);
+            return;
+          } else if (totalScore === 13) {
+            alert(`Parabéns, todos resolvidos: ${13} / 13`);
+            return;
+          }
         }
       }
     } else {
@@ -475,7 +495,10 @@ function showQuestions() {
   divCollection.setAttribute('class', 'square');
   const h3 = document.createElement('h3');
   h3.textContent = 'Questões de Distribuição Eletrônica e Tabela Periódica';
+  const h4 = document.createElement('h4');
+  h4.textContent = `pontos: ${totalScore} / 13`;
   divCollection.appendChild(h3);
+  divCollection.appendChild(h4);
 
   const cards = document.createElement('div');
   cards.setAttribute('id', 'cards');
@@ -624,6 +647,7 @@ function createPeriodicTable(question) {
         td.setAttribute('class', 'cell');
         const input = document.createElement('input');
         input.style.fontSize = '0.7rem';
+        input.style.backgroundColor = 'white';
         input.style.width = '100%';
         input.style.heigth = '100%';
         if (question.answer.includes(periodicTable[i][j].z)) {
@@ -666,12 +690,21 @@ function createEletronicDistribution(question) {
             question.answer[i + 1].current = true;
           } else {
             divShell.remove();
+            if (totalScore < 13) {
+              totalScore += 1;
+              document.querySelector(
+                'h4'
+              ).textContent = `pontos: ${totalScore} / 13`;
+            }
             const pOK = document.createElement('p');
             pOK.innerHTML = 'ok';
             pOK.style.color = 'blue';
             pOK.style.fontSize = '0.8rem';
             pOK.style.fontWeight = 'bold';
             divDistr.appendChild(pOK);
+            if (totalScore === 13) {
+              alert(`Parabéns, todos resolvidos: ${13} / 13`);
+            }
           }
         }
       }
