@@ -674,8 +674,17 @@ function createPeriodicTable(question) {
 }
 
 function createEletronicDistribution(question) {
+  const divEletronic = document.createElement('div');
+  divEletronic.classList.add('mainEletronic');
+  const imgLinus = document.createElement('img');
+  imgLinus.setAttribute('src', './public/images/linus-pauling-diagram.png');
+  imgLinus.style.width = '200px';
+  imgLinus.style.borderRadius = '10px';
+  divEletronic.appendChild(imgLinus);
+
   const divDistr = document.createElement('div');
   divDistr.setAttribute('class', 'distribution');
+  divDistr.style.marginTop = '10px';
   const divShell = document.createElement('div');
   divShell.classList.add('divShell');
   divShell.innerHTML =
@@ -721,8 +730,10 @@ function createEletronicDistribution(question) {
       }
     }
   });
+
   divDistr.appendChild(divShell);
-  return divDistr;
+  divEletronic.appendChild(divDistr);
+  return divEletronic;
 }
 
 // document

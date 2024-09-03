@@ -152,6 +152,11 @@ main {
   align-items: baseline;
 }
 
+.mainEletronic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 table {
   border-spacing: 8px;
 }
