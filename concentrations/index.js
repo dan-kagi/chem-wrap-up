@@ -65,7 +65,7 @@ const questions = [
       {
         variable: 'm',
         formula: 'NH4NO3',
-        answer: 2,
+        answer: 4,
         unit: 'Kg',
       },
     ],

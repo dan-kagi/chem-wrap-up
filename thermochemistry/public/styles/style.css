@@ -1,0 +1,114 @@
+body {
+  font-family: sans-serif;
+  background-color: green;
+  margin: 0px;
+}
+
+header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+h2 {
+  text-align: center;
+  color: white;
+}
+
+.main-card {
+  color: white;
+  width: 45%;
+  border: grey solid 2px;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reaction {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.reactants,
+.products {
+  width: 30%;
+  text-align: center;
+  background-color: orangered;
+  border-radius: 5px;
+}
+
+.arrow {
+  margin: 0px 10px 0px 10px;
+  font-weight: bold;
+}
+.enthalpy {
+  margin-left: 10px;
+}
+.answer {
+  background-color: white;
+  width: 70%;
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 10px;
+}
+.box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.upper > p,
+.lower > p {
+  width: 20px;
+  background-color: red;
+  font-weight: bold;
+  padding: 2px;
+}
+.upper p:nth-of-type(2),
+.lower p:nth-of-type(2) {
+  background-color: red;
+  width: 80%;
+  height: 30px;
+  text-align: center;
+}
+
+.upper,
+.lower {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.enthalpy-level {
+  height: 160px;
+}
+.direction {
+  height: 100px;
+}
+#backHome {
+  margin: 10px;
+  text-align: center;
+}
+#backHome a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
