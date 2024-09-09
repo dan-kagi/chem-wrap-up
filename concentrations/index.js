@@ -153,7 +153,7 @@ const questions = [
       {
         variable: 'n',
         formula: 'KMnO4',
-        answer: 0.0004,
+        answer: 0.004,
         unit: 'mol',
       },
     ],
