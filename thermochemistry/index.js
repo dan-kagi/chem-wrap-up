@@ -12,6 +12,7 @@ const questions = [
     movingHalf: null,
     upper: false,
     lower: false,
+    done: false,
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ const questions = [
     movingHalf: null,
     upper: false,
     lower: false,
+    done: false,
   },
   {
     id: 3,
@@ -40,6 +42,7 @@ const questions = [
     movingHalf: null,
     upper: false,
     lower: false,
+    done: false,
   },
   {
     id: 4,
@@ -54,6 +57,7 @@ const questions = [
     movingHalf: null,
     upper: false,
     lower: false,
+    done: false,
   },
   {
     id: 5,
@@ -68,6 +72,7 @@ const questions = [
     movingHalf: null,
     upper: false,
     lower: false,
+    done: false,
   },
   {
     id: 6,
@@ -82,6 +87,7 @@ const questions = [
     movingHalf: null,
     upper: false,
     lower: false,
+    done: false,
   },
   {
     id: 7,
@@ -96,6 +102,7 @@ const questions = [
     movingHalf: null,
     upper: false,
     lower: false,
+    done: false,
   },
   {
     id: 8,
@@ -110,6 +117,7 @@ const questions = [
     movingHalf: null,
     upper: false,
     lower: false,
+    done: false,
   },
 ];
 
@@ -219,49 +227,53 @@ function createCard(question) {
   });
 
   lowerDropZoneP.addEventListener('drop', (e) => {
-    if (question.reaction === 'exothermic') {
-      if (question.movingHalf === 'products') {
-        lowerDropZoneP.innerHTML = products.innerHTML;
-        lowerP.innerHTML = 'H<sub>f</sub>';
-        lowerDropZoneP.style.backgroundColor = 'blue';
-        question.lower = true;
-        if (question.upper && question.lower) {
-          successP.style.display = 'block';
-          imgDirection.style.display = 'block';
-          if (score < 8) {
-            score += 1;
-            document.querySelector(
-              'h4'
-            ).textContent = `Pontos: ${score} / ${total}`;
-          }
-          if (score === 8) {
-            alert(
-              `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
-            );
-            return;
+    if (!question.done) {
+      if (question.reaction === 'exothermic') {
+        if (question.movingHalf === 'products') {
+          lowerDropZoneP.innerHTML = products.innerHTML;
+          lowerP.innerHTML = 'H<sub>f</sub>';
+          lowerDropZoneP.style.backgroundColor = 'blue';
+          question.lower = true;
+          if (question.upper && question.lower) {
+            question.done = true;
+            successP.style.display = 'block';
+            imgDirection.style.display = 'block';
+            if (score < total) {
+              score += 1;
+              document.querySelector(
+                'h4'
+              ).textContent = `Pontos: ${score} / ${total}.`;
+            }
+            if (score === total) {
+              alert(
+                `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
+              );
+              return;
+            }
           }
         }
-      }
-    } else {
-      if (question.movingHalf === 'reactants') {
-        lowerDropZoneP.innerHTML = reactants.innerHTML;
-        lowerP.innerHTML = 'H<sub>i</sub>';
-        lowerDropZoneP.style.backgroundColor = 'blue';
-        question.lower = true;
-        if (question.upper && question.lower) {
-          successP.style.display = 'block';
-          imgDirection.style.display = 'block';
-          if (score < 8) {
-            score += 1;
-            document.querySelector(
-              'h4'
-            ).textContent = `Pontos: ${score} / ${total}.`;
-          }
-          if (score === 8) {
-            alert(
-              `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
-            );
-            return;
+      } else {
+        if (question.movingHalf === 'reactants') {
+          lowerDropZoneP.innerHTML = reactants.innerHTML;
+          lowerP.innerHTML = 'H<sub>i</sub>';
+          lowerDropZoneP.style.backgroundColor = 'blue';
+          question.lower = true;
+          if (question.upper && question.lower) {
+            question.done = true;
+            successP.style.display = 'block';
+            imgDirection.style.display = 'block';
+            if (score < total) {
+              score += 1;
+              document.querySelector(
+                'h4'
+              ).textContent = `Pontos: ${score} / ${total}.`;
+            }
+            if (score === total) {
+              alert(
+                `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
+              );
+              return;
+            }
           }
         }
       }
@@ -269,49 +281,53 @@ function createCard(question) {
   });
 
   upperDropZoneP.addEventListener('drop', (e) => {
-    if (question.reaction === 'exothermic') {
-      if (question.movingHalf === 'reactants') {
-        upperDropZoneP.innerHTML = reactants.innerHTML;
-        upperP.innerHTML = 'H<sub>i</sub>';
-        upperDropZoneP.style.backgroundColor = 'blue';
-        question.upper = true;
-        if (question.upper && question.lower) {
-          successP.style.display = 'block';
-          imgDirection.style.display = 'block';
-          if (score < 8) {
-            score += 1;
-            document.querySelector(
-              'h4'
-            ).textContent = `Pontos: ${score} / ${total}`;
-          }
-          if (totalScore === 8) {
-            alert(
-              `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
-            );
-            return;
+    if (!question.done) {
+      if (question.reaction === 'exothermic') {
+        if (question.movingHalf === 'reactants') {
+          upperDropZoneP.innerHTML = reactants.innerHTML;
+          upperP.innerHTML = 'H<sub>i</sub>';
+          upperDropZoneP.style.backgroundColor = 'blue';
+          question.upper = true;
+          if (question.upper && question.lower) {
+            question.done = true;
+            successP.style.display = 'block';
+            imgDirection.style.display = 'block';
+            if (score < total) {
+              score += 1;
+              document.querySelector(
+                'h4'
+              ).textContent = `Pontos: ${score} / ${total}.`;
+            }
+            if (score === total) {
+              alert(
+                `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
+              );
+              return;
+            }
           }
         }
-      }
-    } else {
-      if (question.movingHalf === 'products') {
-        upperDropZoneP.innerHTML = products.innerHTML;
-        upperP.innerHTML = 'H<sub>f</sub>';
-        upperDropZoneP.style.backgroundColor = 'blue';
-        question.upper = true;
-        if (question.upper && question.lower) {
-          successP.style.display = 'block';
-          imgDirection.style.display = 'block';
-          if (score < 8) {
-            score += 1;
-            document.querySelector(
-              'h4'
-            ).textContent = `Pontos: ${score} / ${total}`;
-          }
-          if (score === 8) {
-            alert(
-              `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
-            );
-            return;
+      } else {
+        if (question.movingHalf === 'products') {
+          upperDropZoneP.innerHTML = products.innerHTML;
+          upperP.innerHTML = 'H<sub>f</sub>';
+          upperDropZoneP.style.backgroundColor = 'blue';
+          question.upper = true;
+          if (question.upper && question.lower) {
+            question.done = true;
+            successP.style.display = 'block';
+            imgDirection.style.display = 'block';
+            if (score < total) {
+              score += 1;
+              document.querySelector(
+                'h4'
+              ).textContent = `Pontos: ${score} / ${total}.`;
+            }
+            if (score === total) {
+              alert(
+                `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
+              );
+              return;
+            }
           }
         }
       }
