@@ -15,12 +15,18 @@ a {
   font-weight: bold;
   text-decoration: none;
 }
-h2 {
+h2,
+h3 {
   text-align: center;
   color: white;
 }
 
-.main-card {
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
   color: white;
   width: 45%;
   border: grey solid 2px;
@@ -59,37 +65,44 @@ h2 {
   width: 70%;
   padding: 5px;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: center;
+  gap: 10px;
   border-radius: 10px;
 }
 .box {
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
 }
+
 .upper > p,
 .lower > p {
-  width: 20px;
-  background-color: red;
+  width: 25px;
+  background-color: blue;
   font-weight: bold;
-  padding: 2px;
+  text-align: center;
 }
 .upper p:nth-of-type(2),
 .lower p:nth-of-type(2) {
   background-color: red;
-  width: 80%;
-  height: 30px;
+  width: 100%;
   text-align: center;
+  font-weight: bold;
 }
 
 .upper,
 .lower {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 10px;
 }
+
 .enthalpy-level {
   height: 160px;
 }
@@ -111,4 +124,50 @@ footer {
   color: white;
   font-size: 0.8rem;
   font-weight: bold;
+}
+
+@media (max-width: 1135px) {
+  .card {
+    font-size: 0.9rem;
+  }
+  .box {
+    gap: 50px;
+  }
+}
+@media (min-width: 545px) and (max-width: 1034px) {
+  .card {
+    width: 98%;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 455px) and (max-width: 544px) {
+  .card {
+    width: 98%;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 454px) {
+  .card {
+    width: 98%;
+    font-size: 0.65rem;
+    padding: 2px;
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+  .box {
+    gap: 60px;
+  }
+  .answer {
+    width: 80%;
+  }
+  .reactants,
+  .products {
+    width: 25%;
+  }
+  /* .arrow {
+    margin: 0px 1px 0px 1px;
+    font-weight: bold;
+  } */
 }

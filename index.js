@@ -61,6 +61,11 @@ const secondYearTopics = [
     link: './concentrations/index.html',
     additional: ['Concentração Comum', 'Concentração Molar'],
   },
+  {
+    title: 'Termoquímica',
+    link: './thermochemistry/index.html',
+    additional: ['Diagrams de Variação de Entalpia'],
+  },
 ];
 
 const thirdYearTopics = null;
