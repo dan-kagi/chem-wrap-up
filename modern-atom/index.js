@@ -103,7 +103,7 @@ const questions = [
       {
         isCorrect: true,
         answer:
-          '<strong>CV</strong>: 4s<sup>1</sup> - <strong>Localização</strong>: 5<sup>0</sup> período e grupo 1.',
+          '<strong>CV</strong>: 4s<sup>1</sup> - <strong>Localização</strong>: 4<sup>0</sup> período e grupo 1.',
       },
       {
         isCorrect: false,
