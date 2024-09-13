@@ -33,6 +33,11 @@ const firstYearTopics = [
       'Localização na Tabela Periódica',
     ],
   },
+  {
+    title: 'Tabela Periódica',
+    link: './periodic-table-properties/index.html',
+    additional: ['Raio Atômico', 'Energia de Ionização', 'Eletronegatividade'],
+  },
 ];
 
 const secondYearTopics = [

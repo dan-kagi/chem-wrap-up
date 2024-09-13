@@ -1,0 +1,86 @@
+body {
+  font-family: sans-serif;
+  background-color: green;
+  margin: 0px;
+}
+
+header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+h2,
+h3 {
+  text-align: center;
+  color: white;
+}
+#backHome {
+  margin: 10px;
+  text-align: center;
+}
+#backHome a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+img {
+  margin: 5px;
+  width: 100px;
+}
+.score {
+  text-align: center;
+  font-weight: 'bold';
+  color: white;
+}
+main {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card {
+  color: white;
+  width: 45%;
+  border: grey solid 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+}
+strong {
+  color: yellow;
+}
+footer {
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+  .card {
+    width: 98%;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    margin: 0px;
+  }
+  .card {
+    font-size: 0.8rem;
+  }
+  .periodicTable input {
+    font-size: 0.6rem;
+  }
+}
