@@ -361,6 +361,7 @@ const questions = [
       img.setAttribute('src', `${this.img}`);
       card.appendChild(img);
       img.style.width = '300px';
+      img.style.borderRadius = '10px';
       const statements = document.createElement('div');
       statements.style.display = 'flex';
       statements.style.flexDirection = 'column';
