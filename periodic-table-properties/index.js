@@ -364,7 +364,7 @@ const questions = [
       const statements = document.createElement('div');
       statements.style.display = 'flex';
       statements.style.flexDirection = 'column';
-      statements.style.alignItems = 'left';
+      statements.style.alignItems = 'flex-start';
 
       for (let i = 0; i < this.statements.length; i++) {
         const statement = document.createElement('div');
@@ -769,7 +769,7 @@ function createValenceShellCard(id, question, elements) {
   card.classList.add('card');
   const questionP = document.createElement('p');
   questionP.innerHTML = `${id} - ${question}`;
-  questionP.textAlign = 'justify';
+  questionP.style.textAlign = 'justify';
   card.appendChild(questionP);
   const greyBox = document.createElement('div');
   greyBox.style.backgroundColor = 'grey';
@@ -855,7 +855,7 @@ function createAtomicNumberCard(id, question, elements) {
   card.classList.add('card');
   const questionP = document.createElement('p');
   questionP.innerHTML = `${id} - ${question}`;
-  questionP.textAlign = 'justify';
+  questionP.style.textAlign = 'justify';
   card.appendChild(questionP);
   const greyBoxZ = document.createElement('div');
   greyBoxZ.style.display = 'flex';
@@ -905,7 +905,7 @@ function createComparisonPropertyCard(id, question, answer) {
   card.classList.add('card');
   const questionP = document.createElement('p');
   questionP.innerHTML = `${id} - ${question}`;
-  questionP.textAlign = 'center';
+  questionP.style.textAlign = 'justify';
   card.appendChild(questionP);
   const greatestRDiv = document.createElement('div');
   greatestRDiv.style.display = 'flex';
@@ -1099,7 +1099,7 @@ function createPropertyOrderCard(
 
     const ioEnergyP = document.createElement('p');
     ioEnergyP.textContent = 'Ordem Crescente de Energia de Ionização:';
-    ioEnergyP.textAlign = 'center';
+    ioEnergyP.style.textAlign = 'center';
     const ioEnergyDiv = document.createElement('div');
     ioEnergyDiv.style.display = 'flex';
     ioEnergyDiv.style.alignItems = 'center';
@@ -1165,7 +1165,7 @@ function createPropertyOrderCard(
 
     const eletronegativityP = document.createElement('p');
     eletronegativityP.textContent = 'Ordem Crescente de Eletronegatividade:';
-    eletronegativityP.textAlign = 'center';
+    eletronegativityP.style.textAlign = 'center';
     const eletronegativityDiv = document.createElement('div');
     eletronegativityDiv.style.display = 'flex';
     eletronegativityDiv.style.alignItems = 'center';
