@@ -332,22 +332,22 @@ const questions = [
       {
         statement:
           'A energia de ionização tende a diminuir no grupo e aumentar no período.',
-        evaluation: true,
+        evaluation: 'V',
       },
       {
         statement:
           'A energia de ionização do hidrogênio é maior que a do hélio.',
-        evaluation: false,
+        evaluation: 'F',
       },
       {
         statement:
           'A energia de ionização do flúor é maior que a do argônio, do criptônio e do xenônio.',
-        evaluation: true,
+        evaluation: 'V',
       },
       {
         statement:
           'As energias de ionização dos elementos do grupo 18 (gases nobres) são inferiores às energias de ionização dos metais de transição.',
-        evaluation: false,
+        evaluation: 'F',
       },
     ],
     createCard: function () {
@@ -364,19 +364,42 @@ const questions = [
       const statements = document.createElement('div');
       statements.style.display = 'flex';
       statements.style.flexDirection = 'column';
-      statements.style.alignItems = 'center';
+      statements.style.alignItems = 'left';
+
       for (let i = 0; i < this.statements.length; i++) {
         const statement = document.createElement('div');
         statement.style.display = 'flex';
-        statement.alignItems = 'flex-start';
-        statement.justifyContent = 'center';
+        statement.style.alignItems = 'center';
         const input = document.createElement('input');
         input.style.width = '25px';
         input.style.height = '15px';
         input.style.backgroundColor = 'white';
         input.style.color = 'black';
+        input.style.marginRight = '10px';
+        input.style.textAlign = 'center';
         const phrase = document.createElement('p');
         phrase.textContent = this.statements[i].statement;
+        phrase.style.textAlign = 'justify';
+        input.classList.add(this.statements[i].evaluation);
+        input.addEventListener('keyup', () => {
+          if (input.className === input.value) {
+            input.style.backgroundColor = 'blue';
+            input.style.color = 'white';
+            input.style.fontweight = 'bold';
+            input.setAttribute('id', 'marked');
+          } else {
+            input.style.backgroundColor = 'white';
+            input.style.color = 'black';
+            input.style.fontweight = 'normal';
+            input.removeAttribute('id');
+          }
+          const inputs = card.querySelectorAll('#marked');
+          if (inputs.length === this.statements.length) {
+            alert(
+              `Parabéns, você completou corretamente o exercício ${this.id} !!!`
+            );
+          }
+        });
         statement.appendChild(input);
         statement.appendChild(phrase);
         statements.appendChild(statement);
