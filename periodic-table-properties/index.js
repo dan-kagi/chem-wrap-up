@@ -323,6 +323,69 @@ const questions = [
       return card;
     },
   },
+  {
+    id: 16,
+    question:
+      '<strong>(PODE USAR TABELA PERIÓDICA)</strong> (UFPR - 2009) O gráfico a seguir corresponde à tendência da primeira energia de ionização em função do número atômico do elemento, do hidrogênio (Z = 1) ao radônio (Z = 86). A energia de ionização corresponde à energia necessária para remover um elétron do átomo neutro. Observe o gráfico e indique se cada afirmação é verdadeira (V) ou falsa (F). Se a parte estiver correta, a caixinha ficará azul.',
+    img: './public/images/ei.png',
+    statements: [
+      {
+        statement:
+          'A energia de ionização tende a diminuir no grupo e aumentar no período.',
+        evaluation: true,
+      },
+      {
+        statement:
+          'A energia de ionização do hidrogênio é maior que a do hélio.',
+        evaluation: false,
+      },
+      {
+        statement:
+          'A energia de ionização do flúor é maior que a do argônio, do criptônio e do xenônio.',
+        evaluation: true,
+      },
+      {
+        statement:
+          'As energias de ionização dos elementos do grupo 18 (gases nobres) são inferiores às energias de ionização dos metais de transição.',
+        evaluation: false,
+      },
+    ],
+    createCard: function () {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      const questionP = document.createElement('p');
+      questionP.innerHTML = `${this.id} - ${this.question}`;
+      card.appendChild(questionP);
+      questionP.style.textAlign = 'justify';
+      const img = document.createElement('img');
+      img.setAttribute('src', `${this.img}`);
+      card.appendChild(img);
+      img.style.width = '300px';
+      const statements = document.createElement('div');
+      statements.style.display = 'flex';
+      statements.style.flexDirection = 'column';
+      statements.style.alignItems = 'center';
+      for (let i = 0; i < this.statements.length; i++) {
+        const statement = document.createElement('div');
+        statement.style.display = 'flex';
+        statement.alignItems = 'flex-start';
+        statement.justifyContent = 'center';
+        const input = document.createElement('input');
+        input.style.width = '25px';
+        input.style.height = '15px';
+        input.style.backgroundColor = 'white';
+        input.style.color = 'black';
+        const phrase = document.createElement('p');
+        phrase.textContent = this.statements[i].statement;
+        statement.appendChild(input);
+        statement.appendChild(phrase);
+        statements.appendChild(statement);
+      }
+      card.appendChild(statements);
+
+      return card;
+    },
+  },
 ];
 
 for (let q of questions) {
