@@ -351,62 +351,12 @@ const questions = [
       },
     ],
     createCard: function () {
-      const card = document.createElement('div');
-      card.classList.add('card');
-      const questionP = document.createElement('p');
-      questionP.innerHTML = `${this.id} - ${this.question}`;
-      card.appendChild(questionP);
-      questionP.style.textAlign = 'justify';
-      const img = document.createElement('img');
-      img.setAttribute('src', `${this.img}`);
-      card.appendChild(img);
-      img.style.width = '300px';
-      img.style.borderRadius = '10px';
-      const statements = document.createElement('div');
-      statements.style.display = 'flex';
-      statements.style.flexDirection = 'column';
-      statements.style.alignItems = 'flex-start';
-
-      for (let i = 0; i < this.statements.length; i++) {
-        const statement = document.createElement('div');
-        statement.style.display = 'flex';
-        statement.style.alignItems = 'center';
-        const input = document.createElement('input');
-        input.style.width = '25px';
-        input.style.height = '15px';
-        input.style.backgroundColor = 'white';
-        input.style.color = 'black';
-        input.style.marginRight = '10px';
-        input.style.textAlign = 'center';
-        const phrase = document.createElement('p');
-        phrase.textContent = this.statements[i].statement;
-        phrase.style.textAlign = 'justify';
-        input.classList.add(this.statements[i].evaluation);
-        input.addEventListener('keyup', () => {
-          if (input.className === input.value) {
-            input.style.backgroundColor = 'blue';
-            input.style.color = 'white';
-            input.style.fontweight = 'bold';
-            input.setAttribute('id', 'marked');
-          } else {
-            input.style.backgroundColor = 'white';
-            input.style.color = 'black';
-            input.style.fontweight = 'normal';
-            input.removeAttribute('id');
-          }
-          const inputs = card.querySelectorAll('#marked');
-          if (inputs.length === this.statements.length) {
-            alert(
-              `Parabéns, você completou corretamente o exercício ${this.id} !!!`
-            );
-          }
-        });
-        statement.appendChild(input);
-        statement.appendChild(phrase);
-        statements.appendChild(statement);
-      }
-      card.appendChild(statements);
-
+      const card = createEICard(
+        this.id,
+        this.question,
+        this.img,
+        this.statements
+      );
       return card;
     },
   },
@@ -1324,4 +1274,62 @@ function createPeriodicTable2(id, answer) {
     table.appendChild(row);
   }
   return table;
+}
+
+function createEICard(id, question, image, stmts) {
+  const card = document.createElement('div');
+  card.classList.add('card');
+  const questionP = document.createElement('p');
+  questionP.innerHTML = `${id} - ${question}`;
+  card.appendChild(questionP);
+  questionP.style.textAlign = 'justify';
+  const img = document.createElement('img');
+  img.setAttribute('src', `${image}`);
+  card.appendChild(img);
+  img.style.width = '300px';
+  img.style.borderRadius = '10px';
+  const statements = document.createElement('div');
+  statements.style.display = 'flex';
+  statements.style.flexDirection = 'column';
+  statements.style.alignItems = 'flex-start';
+
+  for (let i = 0; i < stmts.length; i++) {
+    const statement = document.createElement('div');
+    statement.style.display = 'flex';
+    statement.style.alignItems = 'center';
+    const input = document.createElement('input');
+    input.style.width = '25px';
+    input.style.height = '15px';
+    input.style.backgroundColor = 'white';
+    input.style.color = 'black';
+    input.style.marginRight = '10px';
+    input.style.textAlign = 'center';
+    const phrase = document.createElement('p');
+    phrase.textContent = stmts[i].statement;
+    phrase.style.textAlign = 'justify';
+    input.classList.add(stmts[i].evaluation);
+    input.addEventListener('keyup', () => {
+      if (input.className === input.value) {
+        input.style.backgroundColor = 'blue';
+        input.style.color = 'white';
+        input.style.fontweight = 'bold';
+        input.setAttribute('id', 'marked');
+      } else {
+        input.style.backgroundColor = 'white';
+        input.style.color = 'black';
+        input.style.fontweight = 'normal';
+        input.removeAttribute('id');
+      }
+      const inputs = card.querySelectorAll('#marked');
+      if (inputs.length === stmts.length) {
+        alert(`Parabéns, você completou corretamente o exercício ${id} !!!`);
+      }
+    });
+    statement.appendChild(input);
+    statement.appendChild(phrase);
+    statements.appendChild(statement);
+  }
+  card.appendChild(statements);
+
+  return card;
 }
