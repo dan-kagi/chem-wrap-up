@@ -2,7 +2,7 @@ const questions = [
   {
     id: 1,
     question:
-      'Dada a reação química abaixo, represente corretamente seu diagrama de entalpia.',
+      'Indque se a reação é endo ou exotérmica. então, represente corretamente seu diagrama de entalpia.',
     reactants: 'CH<sub>4</sub>(g) + 2 O<sub>2</sub>(g)',
     products: 'CO<sub>2</sub>(g) + H<sub>2</sub>O(l)',
     enthalpyDelta: 890.4,
@@ -18,7 +18,7 @@ const questions = [
   {
     id: 2,
     question:
-      'Dada a reação química abaixo, represente corretamente seu diagrama de entalpia.',
+      'Indque se a reação é endo ou exotérmica. então, represente corretamente seu diagrama de entalpia.',
     reactants: 'CaCO<sub>3</sub>(s)',
     products: 'CaO(s) + CO<sub>2</sub>(g)',
     enthalpyDelta: 177.8,
@@ -34,7 +34,7 @@ const questions = [
   {
     id: 3,
     question:
-      'Dada a reação química abaixo, represente corretamente seu diagrama de entalpia.',
+      'Indque se a reação é endo ou exotérmica. então, represente corretamente seu diagrama de entalpia.',
     reactants: 'H<sub>2</sub>(g) + F<sub>2</sub>(g)',
     products: '2 HF(g)',
     enthalpyDelta: 130,
@@ -50,7 +50,7 @@ const questions = [
   {
     id: 4,
     question:
-      'Dada a reação química abaixo, represente corretamente seu diagrama de entalpia.',
+      'Indque se a reação é endo ou exotérmica. então, represente corretamente seu diagrama de entalpia.',
     reactants: '2 C(s) + H<sub>2</sub>(g)',
     products: 'C<sub>2</sub>H<sub>2</sub>(g)',
     enthalpyDelta: 5.3,
@@ -66,7 +66,7 @@ const questions = [
   {
     id: 5,
     question:
-      'Dada a reação química abaixo, represente corretamente seu diagrama de entalpia.',
+      'Indque se a reação é endo ou exotérmica. então, represente corretamente seu diagrama de entalpia.',
     reactants: 'Fe<sub>2</sub>O<sub>3</sub>(s) + 3 C(s)',
     products: '2 Fe(s) + 3 CO(g)',
     enthalpyDelta: 491.5,
@@ -82,7 +82,7 @@ const questions = [
   {
     id: 6,
     question:
-      'Dada a reação química abaixo, represente corretamente seu diagrama de entalpia.',
+      'Indque se a reação é endo ou exotérmica. então, represente corretamente seu diagrama de entalpia.',
     reactants: 'H<sub>2</sub>(g) + O<sub>2</sub>(g)',
     products: 'H<sub>2</sub>O(g)',
     enthalpyDelta: 241.6,
@@ -98,7 +98,7 @@ const questions = [
   {
     id: 7,
     question:
-      'Dada a reação química abaixo, represente corretamente seu diagrama de entalpia.',
+      'Indque se a reação é endo ou exotérmica. então, represente corretamente seu diagrama de entalpia.',
     reactants: 'H<sub>2</sub>O(g)',
     products: 'H<sub>2</sub>(g) + O<sub>2</sub>(g)',
     enthalpyDelta: 241.6,
@@ -114,7 +114,7 @@ const questions = [
   {
     id: 8,
     question:
-      'Dada a reação química abaixo, represente corretamente seu diagrama de entalpia.',
+      'Indque se a reação é endo ou exotérmica. então, represente corretamente seu diagrama de entalpia.',
     reactants: 'H<sub>2</sub>(g) + O<sub>2</sub>(g)',
     products: 'H<sub>2</sub>O(l)',
     enthalpyDelta: 285.5,
@@ -187,7 +187,7 @@ function createCard(question) {
   reactionTypeBox.style.display = 'flex';
   reactionTypeBox.style.alignItems = 'center';
   reactionTypeBox.style.marginTop = '20px';
-  reactionTypeBox.style.marginBottom = '20px';
+  reactionTypeBox.style.marginBottom = '10px';
   const reactionTypeP = document.createElement('p');
   reactionTypeP.textContent = 'reação (endo ou exotérmica): ';
   const reactionTypeInput = document.createElement('input');
