@@ -13,6 +13,7 @@ const questions = [
     upper: false,
     lower: false,
     done: false,
+    reactionTypeDone: false,
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ const questions = [
     upper: false,
     lower: false,
     done: false,
+    reactionTypeDone: false,
   },
   {
     id: 3,
@@ -43,6 +45,7 @@ const questions = [
     upper: false,
     lower: false,
     done: false,
+    reactionTypeDone: false,
   },
   {
     id: 4,
@@ -58,6 +61,7 @@ const questions = [
     upper: false,
     lower: false,
     done: false,
+    reactionTypeDone: false,
   },
   {
     id: 5,
@@ -73,6 +77,7 @@ const questions = [
     upper: false,
     lower: false,
     done: false,
+    reactionTypeDone: false,
   },
   {
     id: 6,
@@ -88,6 +93,7 @@ const questions = [
     upper: false,
     lower: false,
     done: false,
+    reactionTypeDone: false,
   },
   {
     id: 7,
@@ -103,6 +109,7 @@ const questions = [
     upper: false,
     lower: false,
     done: false,
+    reactionTypeDone: false,
   },
   {
     id: 8,
@@ -118,6 +125,7 @@ const questions = [
     upper: false,
     lower: false,
     done: false,
+    reactionTypeDone: false,
   },
 ];
 
@@ -174,13 +182,56 @@ function createCard(question) {
   reaction.appendChild(products);
   reaction.appendChild(enthalpy);
   card.appendChild(reaction);
+
+  const reactionTypeBox = document.createElement('div');
+  reactionTypeBox.style.display = 'flex';
+  reactionTypeBox.style.alignItems = 'center';
+  reactionTypeBox.style.marginTop = '20px';
+  reactionTypeBox.style.marginBottom = '20px';
+  const reactionTypeP = document.createElement('p');
+  reactionTypeP.textContent = 'reação (endo ou exotérmica): ';
+  const reactionTypeInput = document.createElement('input');
+  reactionTypeInput.style.width = '150px';
+  reactionTypeInput.style.height = '20px';
+  reactionTypeInput.style.marginLeft = '5px';
+  reactionTypeInput.style.textAlign = 'center';
+  const reactionResponse = document.createElement('p');
+  reactionResponse.innerText = 'OK';
+  reactionResponse.style.color = 'orange';
+  reactionResponse.style.fontWeight = 'bold';
+  reactionResponse.style.marginLeft = '5px';
+  reactionResponse.style.display = 'none';
+  reactionTypeInput.addEventListener('keyup', () => {
+    if (
+      (question.reaction === 'exothermic' &&
+        reactionTypeInput.value.trim() === 'exotérmica') ||
+      (question.reaction === 'endothermic' &&
+        reactionTypeInput.value.trim() === 'endotérmica')
+    ) {
+      reactionTypeInput.style.backgroundColor = 'blue';
+      reactionTypeInput.style.color = 'white';
+      reactionTypeInput.style.fontWeight = 'bold';
+      reactionResponse.style.display = 'block';
+      question.reactionTypeDone = true;
+    } else {
+      reactionTypeInput.style.backgroundColor = 'white';
+      reactionTypeInput.style.color = 'black';
+      reactionTypeInput.style.fontWeight = 'normal';
+      reactionResponse.style.display = 'none';
+      question.reactionTypeDone = false;
+    }
+  });
+  reactionTypeBox.appendChild(reactionTypeP);
+  reactionTypeBox.appendChild(reactionTypeInput);
+  reactionTypeBox.appendChild(reactionResponse);
+  card.appendChild(reactionTypeBox);
+
   const diagramP = document.createElement('p');
   diagramP.textContent = 'Diagrama de Variação de Entalpia';
   card.appendChild(diagramP);
 
   const answerBox = document.createElement('div');
   answerBox.classList.add('answer');
-
   const imgEnthalpyLevel = document.createElement('img');
   imgEnthalpyLevel.setAttribute('src', './public/images/entalpy-level.png');
   imgEnthalpyLevel.classList.add('enthalpy-level');
@@ -227,52 +278,58 @@ function createCard(question) {
   });
 
   lowerDropZoneP.addEventListener('drop', (e) => {
-    if (!question.done) {
-      if (question.reaction === 'exothermic') {
-        if (question.movingHalf === 'products') {
-          lowerDropZoneP.innerHTML = products.innerHTML;
-          lowerP.innerHTML = 'H<sub>f</sub>';
-          lowerDropZoneP.style.backgroundColor = 'blue';
-          question.lower = true;
-          if (question.upper && question.lower) {
-            question.done = true;
-            successP.style.display = 'block';
-            imgDirection.style.display = 'block';
-            if (score < total) {
-              score += 1;
-              document.querySelector(
-                'h4'
-              ).textContent = `Pontos: ${score} / ${total}.`;
-            }
-            if (score === total) {
-              alert(
-                `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
-              );
-              return;
+    if (!question.reactionTypeDone) {
+      alert(
+        `Q${question.id} - Primeiro você precisa escrever corretamente se a reação é endo ou exotérmica!!`
+      );
+    } else {
+      if (!question.done) {
+        if (question.reaction === 'exothermic') {
+          if (question.movingHalf === 'products') {
+            lowerDropZoneP.innerHTML = products.innerHTML;
+            lowerP.innerHTML = 'H<sub>f</sub>';
+            lowerDropZoneP.style.backgroundColor = 'blue';
+            question.lower = true;
+            if (question.upper && question.lower) {
+              question.done = true;
+              successP.style.display = 'block';
+              imgDirection.style.display = 'block';
+              if (score < total) {
+                score += 1;
+                document.querySelector(
+                  'h4'
+                ).textContent = `Pontos: ${score} / ${total}.`;
+              }
+              if (score === total) {
+                alert(
+                  `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
+                );
+                return;
+              }
             }
           }
-        }
-      } else {
-        if (question.movingHalf === 'reactants') {
-          lowerDropZoneP.innerHTML = reactants.innerHTML;
-          lowerP.innerHTML = 'H<sub>i</sub>';
-          lowerDropZoneP.style.backgroundColor = 'blue';
-          question.lower = true;
-          if (question.upper && question.lower) {
-            question.done = true;
-            successP.style.display = 'block';
-            imgDirection.style.display = 'block';
-            if (score < total) {
-              score += 1;
-              document.querySelector(
-                'h4'
-              ).textContent = `Pontos: ${score} / ${total}.`;
-            }
-            if (score === total) {
-              alert(
-                `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
-              );
-              return;
+        } else {
+          if (question.movingHalf === 'reactants') {
+            lowerDropZoneP.innerHTML = reactants.innerHTML;
+            lowerP.innerHTML = 'H<sub>i</sub>';
+            lowerDropZoneP.style.backgroundColor = 'blue';
+            question.lower = true;
+            if (question.upper && question.lower) {
+              question.done = true;
+              successP.style.display = 'block';
+              imgDirection.style.display = 'block';
+              if (score < total) {
+                score += 1;
+                document.querySelector(
+                  'h4'
+                ).textContent = `Pontos: ${score} / ${total}.`;
+              }
+              if (score === total) {
+                alert(
+                  `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
+                );
+                return;
+              }
             }
           }
         }
@@ -281,52 +338,58 @@ function createCard(question) {
   });
 
   upperDropZoneP.addEventListener('drop', (e) => {
-    if (!question.done) {
-      if (question.reaction === 'exothermic') {
-        if (question.movingHalf === 'reactants') {
-          upperDropZoneP.innerHTML = reactants.innerHTML;
-          upperP.innerHTML = 'H<sub>i</sub>';
-          upperDropZoneP.style.backgroundColor = 'blue';
-          question.upper = true;
-          if (question.upper && question.lower) {
-            question.done = true;
-            successP.style.display = 'block';
-            imgDirection.style.display = 'block';
-            if (score < total) {
-              score += 1;
-              document.querySelector(
-                'h4'
-              ).textContent = `Pontos: ${score} / ${total}.`;
-            }
-            if (score === total) {
-              alert(
-                `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
-              );
-              return;
+    if (!question.reactionTypeDone) {
+      alert(
+        `Q${question.id} - Primeiro você precisa escrever corretamente se a reação é endo ou exotérmica!!`
+      );
+    } else {
+      if (!question.done) {
+        if (question.reaction === 'exothermic') {
+          if (question.movingHalf === 'reactants') {
+            upperDropZoneP.innerHTML = reactants.innerHTML;
+            upperP.innerHTML = 'H<sub>i</sub>';
+            upperDropZoneP.style.backgroundColor = 'blue';
+            question.upper = true;
+            if (question.upper && question.lower) {
+              question.done = true;
+              successP.style.display = 'block';
+              imgDirection.style.display = 'block';
+              if (score < total) {
+                score += 1;
+                document.querySelector(
+                  'h4'
+                ).textContent = `Pontos: ${score} / ${total}.`;
+              }
+              if (score === total) {
+                alert(
+                  `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
+                );
+                return;
+              }
             }
           }
-        }
-      } else {
-        if (question.movingHalf === 'products') {
-          upperDropZoneP.innerHTML = products.innerHTML;
-          upperP.innerHTML = 'H<sub>f</sub>';
-          upperDropZoneP.style.backgroundColor = 'blue';
-          question.upper = true;
-          if (question.upper && question.lower) {
-            question.done = true;
-            successP.style.display = 'block';
-            imgDirection.style.display = 'block';
-            if (score < total) {
-              score += 1;
-              document.querySelector(
-                'h4'
-              ).textContent = `Pontos: ${score} / ${total}.`;
-            }
-            if (score === total) {
-              alert(
-                `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
-              );
-              return;
+        } else {
+          if (question.movingHalf === 'products') {
+            upperDropZoneP.innerHTML = products.innerHTML;
+            upperP.innerHTML = 'H<sub>f</sub>';
+            upperDropZoneP.style.backgroundColor = 'blue';
+            question.upper = true;
+            if (question.upper && question.lower) {
+              question.done = true;
+              successP.style.display = 'block';
+              imgDirection.style.display = 'block';
+              if (score < total) {
+                score += 1;
+                document.querySelector(
+                  'h4'
+                ).textContent = `Pontos: ${score} / ${total}.`;
+              }
+              if (score === total) {
+                alert(
+                  `Parabéns! Você completou a tarefa com todas certas, ${score} / ${total}.`
+                );
+                return;
+              }
             }
           }
         }
