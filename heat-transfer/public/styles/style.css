@@ -1,0 +1,74 @@
+body {
+  font-family: sans-serif;
+  background-color: green;
+  margin: 0px;
+}
+
+header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+h2,
+h3,
+h4 {
+  text-align: center;
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  color: white;
+  width: 45%;
+  border: grey solid 5px;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+strong {
+  color: yellow;
+}
+#backHome {
+  margin: 10px;
+  text-align: center;
+}
+#backHome a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+@media (min-width: 400px) and (max-width: 835px) {
+  .card {
+    width: 98%;
+  }
+}
+
+@media (max-width: 399px) {
+  .card {
+    width: 98%;
+  }
+  .greyBox {
+    width: 80%;
+  }
+}

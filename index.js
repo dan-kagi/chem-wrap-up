@@ -67,9 +67,14 @@ const secondYearTopics = [
     additional: ['Concentração Comum', 'Concentração Molar'],
   },
   {
+    title: 'Transferência de Calor',
+    link: './heat-transfer/index.html',
+    additional: null,
+  },
+  {
     title: 'Termoquímica',
     link: './thermochemistry/index.html',
-    additional: ['Diagrams de Variação de Entalpia'],
+    additional: ['Diagramas de Variação de Entalpia'],
   },
 ];
 

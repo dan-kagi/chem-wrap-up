@@ -1330,6 +1330,5 @@ function createEICard(id, question, image, stmts) {
     statements.appendChild(statement);
   }
   card.appendChild(statements);
-
   return card;
 }
