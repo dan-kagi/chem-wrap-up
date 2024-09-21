@@ -243,7 +243,7 @@ const questions = [
   {
     id: 12,
     question:
-      '<strong>(sem consultar tabela periódica)</strong> Ordene os elementos <strong>B</strong> (grupo 13, 2<sup>o</sup> período), <strong>C</strong> (grupo 12, 2<sup>o</sup> período), <strong>N</strong> (grupo 15, 2<sup>o</sup> período), <strong>O</strong> (grupo 16, 2<sup>o</sup> período) e <strong>Al</strong> (grupo 13, 3<sup>o</sup> período). Se a parte estiver correta, a caixinha ficará azul.',
+      '<strong>(sem consultar tabela periódica)</strong> Ordene os elementos <strong>B</strong> (grupo 13, 2<sup>o</sup> período), <strong>C</strong> (grupo 14, 2<sup>o</sup> período), <strong>N</strong> (grupo 15, 2<sup>o</sup> período), <strong>O</strong> (grupo 16, 2<sup>o</sup> período) e <strong>Al</strong> (grupo 13, 3<sup>o</sup> período). Se a parte estiver correta, a caixinha ficará azul.',
     radiusElements: null,
     ioEnergyElements: null,
     eletronegativityElements: ['Al', 'B', 'C', 'N', 'O'],
