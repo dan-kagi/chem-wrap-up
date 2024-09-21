@@ -76,6 +76,11 @@ const secondYearTopics = [
     link: './thermochemistry/index.html',
     additional: ['Diagramas de Variação de Entalpia'],
   },
+  {
+    title: 'Termoquímica',
+    link: './hess/index.html',
+    additional: ['Lei de Hess'],
+  },
 ];
 
 const thirdYearTopics = null;
