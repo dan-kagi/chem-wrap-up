@@ -26,14 +26,14 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
 }
 .card {
   color: white;
-  width: 45%;
-  border: grey solid 5px;
+  width: 43%;
+  border: grey solid 3px;
   border-radius: 10px;
-  margin: 0px;
+  margin: 2px;
   padding: 5px;
   display: flex;
   flex-direction: column;
