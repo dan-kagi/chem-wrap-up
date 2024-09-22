@@ -564,7 +564,11 @@ function createReactionHandler(
   const deltaH = document.createElement('p');
   deltaH.classList.add('deltaH');
   deltaH.style.textAlign = 'center';
-  deltaH.innerHTML = `&Delta;H = ${reaction.deltaH}`;
+  deltaH.innerHTML = `&Delta;H = ${
+    reaction.deltaH === '?'
+      ? '?'
+      : reaction.deltaH.toFixed(2).toString().replace('.', ',')
+  }`;
   deltaH.style.marginLeft = '5px';
   reactionHandler.appendChild(deltaH);
   if (reaction.operation.multiply || reaction.operation.reverse) {
@@ -595,7 +599,10 @@ function createReactionHandler(
         reactionHandler.prepend(arrow);
         reactionHandler.prepend(reactants);
         reaction.deltaH = reaction.deltaH * -1;
-        deltaH.innerHTML = `&Delta;H = ${reaction.deltaH}`;
+        deltaH.innerHTML = `&Delta;H = ${reaction.deltaH
+          .toFixed(2)
+          .toString()
+          .replace('.', ',')}`;
         reaction.operationsDone.reverse = !reaction.operationsDone.reverse;
         let count = 0;
         for (let reaction of reactions) {
@@ -640,7 +647,10 @@ function createReactionHandler(
           });
 
           reaction.deltaH = reaction.deltaH * reaction.operation.multiply;
-          deltaH.innerHTML = `&Delta;H = ${reaction.deltaH.toFixed(2)}`;
+          deltaH.innerHTML = `&Delta;H = ${reaction.deltaH
+            .toFixed(2)
+            .toString()
+            .replace('.', ',')}`;
           reaction.operationsDone.multiply = !reaction.operationsDone.multiply;
         } else if (
           reaction.operation.multiply &&
@@ -651,7 +661,10 @@ function createReactionHandler(
               Number(coef.innerText) / reaction.operation.multiply;
           });
           reaction.deltaH = reaction.deltaH / reaction.operation.multiply;
-          deltaH.innerHTML = `&Delta;H = ${reaction.deltaH.toFixed(2)}`;
+          deltaH.innerHTML = `&Delta;H = ${reaction.deltaH
+            .toFixed(2)
+            .toString()
+            .replace('.', ',')}`;
           reaction.operationsDone.multiply = !reaction.operationsDone.multiply;
         }
         let count = 0;
