@@ -618,7 +618,10 @@ function createReactionHandler(
         const dH = global.querySelector('.deltaH');
         if (count === totalOperationsCount) {
           global.style.display = 'flex';
-          dH.innerHTML = `&Delta;H = ${globalReact.answer}`;
+          dH.innerHTML = `&Delta;H = ${globalReact.answer
+            .toFixed(2)
+            .toString()
+            .replace('.', ',')}`;
           card.querySelectorAll('.cancel').forEach((subs) => {
             subs.style.color = 'black';
           });
@@ -681,7 +684,10 @@ function createReactionHandler(
         const dH = global.querySelector('.deltaH');
         if (count === totalOperationsCount) {
           global.style.display = 'flex';
-          dH.innerHTML = `&Delta;H = ${globalReact.answer}`;
+          dH.innerHTML = `&Delta;H = ${globalReact.answer
+            .toFixed(2)
+            .toString()
+            .replace('.', ',')}`;
           card.querySelectorAll('.cancel').forEach((subs) => {
             subs.style.color = 'black';
           });
