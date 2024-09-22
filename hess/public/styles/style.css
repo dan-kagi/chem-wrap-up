@@ -29,8 +29,8 @@ main {
 }
 .card {
   color: white;
-  width: 45%;
-  border: grey solid 2px;
+  width: 42%;
+  border: grey solid 5px;
   border-radius: 10px;
   margin: 5px;
   padding: 10px;

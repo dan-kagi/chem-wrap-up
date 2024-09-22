@@ -293,6 +293,86 @@ const questions = [
       return card;
     },
   },
+  {
+    id: 6,
+    question:
+      '(UFMS-mod) Calcule a entalpia, ∆H, em kcal/mol, da reação a seguir nas condições ambientais (25 °C e 1 atm), dado o conjunto de reações na caixa cinza.',
+    reactions: [
+      {
+        reactants: [
+          {
+            substance: 'C<sub>2</sub>H<sub>6</sub>(g)',
+            coef: 1,
+            cancel: true,
+          },
+          { substance: 'O<sub>2</sub>(g)', coef: 3.5, cancel: false },
+        ],
+        products: [
+          {
+            substance: 'CO<sub>2</sub>(g)',
+            coef: 2,
+            cancel: false,
+          },
+          {
+            substance: 'H<sub>2</sub>O(l)',
+            coef: 3,
+            cancel: true,
+          },
+        ],
+        deltaH: -372.7,
+        operation: { multiply: 0.5, reverse: true },
+        operationsDone: { multiply: false, reverse: false },
+      },
+      {
+        reactants: [
+          { substance: 'C(grafite)', coef: 2, cancel: false },
+          { substance: 'H<sub>2</sub>(g)', coef: 3, cancel: true },
+        ],
+        products: [
+          {
+            substance: 'C<sub>2</sub>H<sub>6</sub>(g)',
+            coef: 1,
+            cancel: true,
+          },
+        ],
+        deltaH: -20,
+        operation: { multiply: 0.5, reverse: true },
+        operationsDone: { multiply: false, reverse: false },
+      },
+      {
+        reactants: [
+          { substance: 'H<sub>2</sub>(g)', coef: 1, cancel: true },
+          { substance: 'O<sub>2</sub>(g)', coef: 0.5, cancel: false },
+        ],
+        products: [{ substance: 'H<sub>2</sub>O(l)', coef: 1, cancel: true }],
+        deltaH: -68.3,
+        operation: { multiply: 1.5, reverse: false },
+        operationsDone: { multiply: false, reverse: false },
+      },
+    ],
+    totalOperationsCount: 5,
+    globalReaction: {
+      reactants: [{ substance: 'CO<sub>2</sub>(g)', coef: 1, cancel: false }],
+      products: [
+        { substance: 'C(s)', coef: 1, cancel: false },
+        { substance: 'O<sub>2</sub>(g)', coef: 1, cancel: false },
+      ],
+      deltaH: '?',
+      unit: 'kcal / mol',
+      operation: { multiply: false, reverse: false },
+      answer: 93.9,
+    },
+    createCard: function () {
+      const card = createHessCard(
+        this.id,
+        this.question,
+        this.globalReaction,
+        this.reactions,
+        this.totalOperationsCount
+      );
+      return card;
+    },
+  },
 ];
 
 function createHessCard(
@@ -519,10 +599,10 @@ function createReactionHandler(
         reaction.operationsDone.reverse = !reaction.operationsDone.reverse;
         let count = 0;
         for (let reaction of reactions) {
-          if (
-            (reaction.operation.multiply && reaction.operationsDone.multiply) ||
-            (reaction.operation.reverse && reaction.operationsDone.reverse)
-          ) {
+          if (reaction.operation.multiply && reaction.operationsDone.multiply) {
+            count += 1;
+          }
+          if (reaction.operation.reverse && reaction.operationsDone.reverse) {
             count += 1;
           }
         }
@@ -560,7 +640,7 @@ function createReactionHandler(
           });
 
           reaction.deltaH = reaction.deltaH * reaction.operation.multiply;
-          deltaH.innerHTML = `&Delta;H = ${reaction.deltaH}`;
+          deltaH.innerHTML = `&Delta;H = ${reaction.deltaH.toFixed(2)}`;
           reaction.operationsDone.multiply = !reaction.operationsDone.multiply;
         } else if (
           reaction.operation.multiply &&
@@ -571,15 +651,15 @@ function createReactionHandler(
               Number(coef.innerText) / reaction.operation.multiply;
           });
           reaction.deltaH = reaction.deltaH / reaction.operation.multiply;
-          deltaH.innerHTML = `&Delta;H = ${reaction.deltaH}`;
+          deltaH.innerHTML = `&Delta;H = ${reaction.deltaH.toFixed(2)}`;
           reaction.operationsDone.multiply = !reaction.operationsDone.multiply;
         }
         let count = 0;
         for (let reaction of reactions) {
-          if (
-            (reaction.operation.multiply && reaction.operationsDone.multiply) ||
-            (reaction.operation.reverse && reaction.operationsDone.reverse)
-          ) {
+          if (reaction.operation.multiply && reaction.operationsDone.multiply) {
+            count += 1;
+          }
+          if (reaction.operation.reverse && reaction.operationsDone.reverse) {
             count += 1;
           }
         }
