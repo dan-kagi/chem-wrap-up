@@ -316,7 +316,7 @@ const questions = [
   {
     id: 20,
     question:
-      '500 mL de solução aquosa de cloreto de sódio 0,02M foi submetida ao processo de evaporação. Sabend-se que 400 mL de solvente foram evaporados, qual é a concentração molar após este processo?',
+      '500 mL de solução aquosa de cloreto de sódio 0,02M foram submetidos ao processo de evaporação. Sabendo-se que 400 mL de solvente foram evaporados, qual é a concentração molar após este processo?',
     answers: [
       {
         variable: 'M',
