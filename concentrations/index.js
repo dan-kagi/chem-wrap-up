@@ -285,6 +285,62 @@ const questions = [
     ],
     image: '',
   },
+  {
+    id: 18,
+    question:
+      'Foram adicionados 100 mL de água à 100 mL de solução de ácido sulfúrico, H<sub>2</sub>SO<sub>4</sub>, 10 g / L. Determine a concentração da solução final obtida com este procedimento.',
+    answers: [
+      {
+        variable: 'C',
+        formula: 'H2SO4',
+        answer: 5,
+        unit: 'g / L',
+      },
+    ],
+    image: '',
+  },
+  {
+    id: 19,
+    question:
+      ' (FUVEST-mod) – Se adicionarmos 80 mL de água a 20 mL de uma solução 0,1 mol/L de hidróxido de potássio, qual é o valor da concentração molar da solução final obtida?',
+    answers: [
+      {
+        variable: 'M',
+        formula: 'KOH',
+        answer: 0.02,
+        unit: 'mol / L',
+      },
+    ],
+    image: '',
+  },
+  {
+    id: 20,
+    question:
+      '500 mL de solução aquosa de cloreto de sódio 0,02M foi submetida ao processo de evaporação. Sabend-se que 400 mL de solvente foram evaporados, qual é a concentração molar após este processo?',
+    answers: [
+      {
+        variable: 'M',
+        formula: 'NaCl',
+        answer: 0.1,
+        unit: 'mol / L',
+      },
+    ],
+    image: '',
+  },
+  {
+    id: 21,
+    question:
+      '(CESGRANRIO) – O metal mercúrio (Hg) é tóxico, pode ser absorvido, via gastrintestinal, pelos animais e sua excreção é lenta. A análise da água de um rio contaminado revelou uma concentração molar igual a 5,0 x 10<sup>–5</sup> mol/L de mercúrio. Qual é a massa aproximada, em mg, de mercúrio ingerida por um garimpeiro, ao beber um copo contendo 250 mL dessa água? (Dado: massa molar do Hg = 200 g/mol).',
+    answers: [
+      {
+        variable: 'm',
+        formula: 'Hg',
+        answer: 2.5,
+        unit: 'mg',
+      },
+    ],
+    image: '',
+  },
 ];
 
 function createCard(question) {
