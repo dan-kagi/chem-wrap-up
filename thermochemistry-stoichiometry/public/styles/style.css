@@ -1,0 +1,102 @@
+body {
+  font-family: sans-serif;
+  background-color: green;
+  margin: 0px;
+}
+
+header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+h2 {
+  text-align: center;
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  color: white;
+  width: 42%;
+  border: grey solid 2px;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#backHome {
+  margin: 10px;
+  text-align: center;
+}
+#backHome a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+@media (max-width: 1135px) {
+  .card {
+    font-size: 0.9rem;
+  }
+  .box {
+    gap: 50px;
+  }
+}
+@media (min-width: 545px) and (max-width: 1034px) {
+  .card {
+    width: 98%;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 455px) and (max-width: 544px) {
+  .card {
+    width: 98%;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 454px) {
+  .card {
+    width: 98%;
+    font-size: 0.65rem;
+    padding: 2px;
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+  .box {
+    gap: 60px;
+  }
+  .answer {
+    width: 80%;
+  }
+  .reactants,
+  .products {
+    width: 25%;
+  }
+  /* .arrow {
+    margin: 0px 1px 0px 1px;
+    font-weight: bold;
+  } */
+}

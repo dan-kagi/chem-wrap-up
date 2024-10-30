@@ -81,6 +81,11 @@ const secondYearTopics = [
     link: './hess/index.html',
     additional: ['Lei de Hess'],
   },
+  {
+    title: 'Termoquímica',
+    link: './thermochemistry-stoichiometry/index.html',
+    additional: ['Estequiometria'],
+  },
 ];
 
 const thirdYearTopics = null;
