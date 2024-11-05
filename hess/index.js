@@ -273,7 +273,7 @@ const questions = [
     totalOperationsCount: 1,
     globalReaction: {
       reactants: [
-        { substance: 'WC(s)', coef: 1, cancel: false },
+        { substance: 'W(s)', coef: 1, cancel: false },
         { substance: 'C(grafite)', coef: 1, cancel: false },
       ],
       products: [{ substance: 'WC(s)', coef: 1, cancel: false }],
